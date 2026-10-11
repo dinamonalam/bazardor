@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের দৈনিক বাজারদর জানার সহজ ওয়েব অ্যাপ্লিকেশন।
 
-First, run the development server:
+## 📖 বিবরণ
+
+বাজার দর একটি আধুনিক ওয়েব অ্যাপ্লিকেশন, যেখানে চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মসলা সহ বিভিন্ন পণ্যের দৈনিক বাজারদর দেখা যায়। বাজারভিত্তিক সর্বনিম্ন ও সর্বোচ্চ দাম, গড় দাম এবং দামের পরিবর্তনের হার এক জায়গায় পাওয়া যায়।
+
+## 🛠️ ব্যবহৃত প্রযুক্তি
+
+| প্রযুক্তি | ব্যবহার |
+|---|---|
+| Next.js (App Router) | UI ও রাউটিং |
+| TypeScript | টাইপ-সেফ ডেভেলপমেন্ট |
+| Tailwind CSS v4 | স্টাইলিং ও রেসপন্সিভ ডিজাইন |
+| DaisyUI | UI কম্পোনেন্ট লাইব্রেরি |
+| BetterAuth | অথেন্টিকেশন (Email, Google, GitHub) |
+| MongoDB Atlas | ডাটাবেজ |
+| react-hot-toast | নোটিফিকেশন |
+
+## ✨ প্রধান ফিচারসমূহ
+
+1. **📊 দামের ড্যাশবোর্ড** — আজ কোন পণ্যের দাম বেড়েছে ও কমেছে তার তালিকা
+2. **🏪 বাজারভিত্তিক দাম** — বিভিন্ন বিভাগের বাজারের সর্বনিম্ন, সর্বোচ্চ ও গড় দাম
+3. **🔐 নিরাপদ অথেন্টিকেশন** — ইমেইল/পাসওয়ার্ড, Google ও GitHub দিয়ে সাইন ইন/আপ এবং প্রটেক্টেড রুট
+4. **📱 সম্পূর্ণ রেসপন্সিভ** — মোবাইল, ট্যাবলেট ও ডেস্কটপে সমানভাবে কাজ করে
+5. **🔍 ক্যাটাগরি ও সর্ট** — ক্যাটাগরি অনুযায়ী পণ্য দেখা এবং দাম অনুযায়ী সাজানো
+6. **📰 লাইভ প্রাইস টিকার** — চলমান দামের স্ট্রিপ
+7. **👤 প্রোফাইল আপডেট** — নিজের নাম পরিবর্তনের সুবিধা
+
+## 🚀 লোকালি চালানোর নিয়ম
+
+```bash
+git clone <your-repo-url>
+cd bazardor
+npm install
+```
+
+`.env.local` ফাইল বানিয়ে নিচের মানগুলো দাও:
+
+```env
+MONGODB_URI=
+BETTER_AUTH_SECRET=
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔗 লাইভ লিংক
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[বাজার দর - লাইভ](https://your-deployment-link.vercel.app)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© ২০২৬ বাজার দর

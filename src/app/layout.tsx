@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="bn" data-theme="light">
-      <body className={`${hindSiliguri.className} antialiased`}>
+      <body className={`${hindSiliguri.className} antialiased bg-green-50/60`}>
   <Navbar />
   <main className="min-h-screen">{children}</main>
   <Footer />
