@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -21,8 +22,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="bn" data-theme="light">
-      <body className={`${hindSiliguri.className} antialiased bg-green-50/60`}>
-  <Navbar />
+     <body className={`${hindSiliguri.className} antialiased bg-green-50/60`}>
+  <Suspense fallback={<div className="h-28 bg-white" />}>
+    <Navbar />
+  </Suspense>
   <main className="min-h-screen">{children}</main>
   <Footer />
   <Toaster position="top-center" />

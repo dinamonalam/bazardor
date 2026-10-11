@@ -1,5 +1,5 @@
-import { getBanglaDate, toBengaliNumber, type Product } from "@/lib/utils";
-
+import { toBengaliNumber, type Product } from "@/lib/utils";
+import BanglaDate from "./BanglaDate";
 export default function Hero({ products }: { products: Product[] }) {
   const total = products.length;
   const up = products.filter((p) => p.change.dir === "up").length;
@@ -11,8 +11,8 @@ export default function Hero({ products }: { products: Product[] }) {
         {/* বাম পাশ */}
         <div className="flex-1">
           <span className="badge badge-success badge-outline mb-3">
-            {getBanglaDate()}
-          </span>
+  <BanglaDate />
+</span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 leading-snug">
             আজকের বাজারের দাম এক নজরে
           </h2>

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useSession, signOut } from "@/lib/auth-client";
-import { getBanglaDate, type Category } from "@/lib/utils";
+import { type Category } from "@/lib/utils";
+import BanglaDate from "./BanglaDate";
 import PriceTicker from "./PriceTicker";
 
 export default function Navbar() {
@@ -40,7 +41,9 @@ export default function Navbar() {
           <span className="text-2xl">🛒</span>
           <div>
             <h1 className="text-xl font-bold text-green-700 leading-tight">বাজার দর</h1>
-            <p className="text-xs text-gray-500">{getBanglaDate()}</p>
+            <p className="text-xs text-gray-500">
+  <BanglaDate />
+</p>
           </div>
         </Link>
 
@@ -57,33 +60,39 @@ export default function Navbar() {
             <span className="loading loading-spinner loading-sm"></span>
           ) : session ? (
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-sm gap-2">
-                <div className="avatar">
-                  <div className="w-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center">
-                    {session.user.image ? (
-                      <img src={session.user.image} alt={session.user.name} />
-                    ) : (
-                      <span className="text-sm">{session.user.name?.charAt(0) || "U"}</span>
-                    )}
-                  </div>
-                </div>
-                <span>{session.user.name}</span>
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-white rounded-box shadow-lg z-10 w-56 p-2"
-              >
-                <li className="px-3 py-1 text-xs text-gray-500 pointer-events-none">
-                  {session.user.email}
-                </li>
-                <li>
-                  <Link href="/profile">👤 আমার প্রোফাইল</Link>
-                </li>
-                <li>
-                  <button onClick={handleSignOut}>🚪 সাইন আউট</button>
-                </li>
-              </ul>
-            </div>
+  <div tabIndex={0} role="button" className="btn btn-ghost btn-sm gap-2">
+    <div className="avatar">
+      <div className="w-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center">
+        {session.user.image ? (
+          <img src={session.user.image} alt={session.user.name} />
+        ) : (
+          <span className="text-sm">{session.user.name?.charAt(0) || "U"}</span>
+        )}
+      </div>
+    </div>
+    <span>{session.user.name}</span>
+    <span className="text-xs text-gray-400">▾</span>
+  </div>
+  <ul
+    tabIndex={0}
+    className="dropdown-content menu bg-white rounded-box shadow-lg border z-10 w-60 p-2 mt-2"
+  >
+    <li className="pointer-events-none px-3 py-2">
+      <div className="flex-col items-start gap-0 p-0">
+        <span className="font-semibold text-gray-800">{session.user.name}</span>
+        <span className="text-xs text-gray-500">{session.user.email}</span>
+      </div>
+    </li>
+    <li>
+      <Link href="/profile">👤 আমার প্রোফাইল</Link>
+    </li>
+    <li>
+      <button onClick={handleSignOut} className="text-red-500">
+        🚪 সাইন আউট
+      </button>
+    </li>
+  </ul>
+</div>
           ) : (
             <>
               <Link href="/signin" className="btn btn-sm btn-outline btn-success">
