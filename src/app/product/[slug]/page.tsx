@@ -168,15 +168,23 @@ async function ProductContent({ slug }: { slug: string }) {
   );
 }
 
-export default async function ProductPage({
+async function ProductLoader({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  return <ProductContent slug={slug} />;
+}
+
+export default function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   return (
     <Suspense fallback={<ProductSkeleton />}>
-      <ProductContent slug={slug} />
+      <ProductLoader params={params} />
     </Suspense>
   );
 }

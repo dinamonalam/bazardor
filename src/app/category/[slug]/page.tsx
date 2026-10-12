@@ -41,15 +41,23 @@ async function CategoryContent({ slug }: { slug: string }) {
   return <CategoryView products={products} category={category} />;
 }
 
-export default async function CategoryPage({
+async function CategoryLoader({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  return <CategoryContent slug={slug} />;
+}
+
+export default function CategoryPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   return (
     <Suspense fallback={<CategorySkeleton />}>
-      <CategoryContent slug={slug} />
+      <CategoryLoader params={params} />
     </Suspense>
   );
 }
