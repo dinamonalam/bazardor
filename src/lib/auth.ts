@@ -18,4 +18,10 @@ export const auth = betterAuth({
     },
   },
   database: mongodbAdapter(db, { client }),
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ["github", "google"],
+    },
+  },
 });
